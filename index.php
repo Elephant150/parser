@@ -3,6 +3,10 @@ require_once "library/simple_html_dom.php";
 
 $html = file_get_html("http://bus.com.ua/cgi-bin/tablo.pl");
 
+function testFunc() {
+  return false;
+}
+
 foreach ($html->find('table[style="font-size:60%;border: #528d5c 1px dashed;"]>tr>td>a') as $item) {
     $stripTags = strip_tags($item);
     preg_match_all('<a href="(.*?)">', $item, $out, PREG_SET_ORDER);
